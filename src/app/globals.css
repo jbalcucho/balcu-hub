@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0b0d12;
+  --surface: #141824;
+  --surface-hover: #1b2130;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f1ec;
+  --muted: #9aa3b2;
+  --accent: #6ee7b7;
+  --accent-soft: rgba(110, 231, 183, 0.14);
+  --violet: #a78bfa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html,
+  body {
+    min-height: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background:
+      radial-gradient(circle at top, rgba(167, 139, 250, 0.12), transparent 35%),
+      radial-gradient(circle at 85% 20%, rgba(110, 231, 183, 0.08), transparent 25%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .card {
+    @apply rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.25)];
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border border-[var(--border)] bg-white/5 px-2.5 py-1 text-xs font-medium text-[var(--muted)];
+  }
+
+  .badge-accent {
+    @apply border-emerald-400/20 bg-[var(--accent-soft)] text-emerald-200;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl border border-[var(--border)] px-3 py-2 transition hover:bg-white/5;
+  }
+
+  .link-accent {
+    @apply text-emerald-300 transition hover:text-emerald-200;
+  }
+
+  .field {
+    @apply flex flex-col gap-2 text-sm text-[var(--muted)];
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    @apply rounded-xl border border-[var(--border)] bg-[#0f131c] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-emerald-400/40;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+  }
 }

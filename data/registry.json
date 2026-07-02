@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "slug": "smart_control_security",
+      "name": "Smart Control Security",
+      "description": "Control de asistencia offline-first para guardias de seguridad, con anti-fraude en servidor.",
+      "status": "Fase 1",
+      "emoji": "🛡️",
+      "url": null,
+      "repo": "https://github.com/jbalcucho/smart_control_security"
+    },
+    {
+      "slug": "rotatudisfraz",
+      "name": "RotaTuDisfraz",
+      "description": "Marketplace comunitario de disfraces de segunda mano para colegios.",
+      "status": "Producción",
+      "emoji": "🎃",
+      "url": "https://rotatudisfraz.vercel.app",
+      "repo": "https://github.com/jbalcucho/rotatudisfraz"
+    },
+    {
+      "slug": "chacachon_stories",
+      "name": "Chacachon Stories",
+      "description": "Cuentos infantiles hiperlocalizados con humor regional para leer en familia.",
+      "status": "MVP",
+      "emoji": "🌙",
+      "url": "https://chacachon-stories.vercel.app",
+      "repo": "https://github.com/jbalcucho/chacachon_stories"
+    }
+  ]
+}

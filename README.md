@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Balcu Hub
 
-## Getting Started
+Portal web del ecosistema Balcu Apps: vitrina pública de proyectos y panel admin para gestionar publicaciones (cuentos, demos, lanzamientos).
 
-First, run the development server:
+**Stack:** Next.js 15 · Neon Postgres · Prisma · NextAuth (Google) · Vercel
+
+---
+
+## Qué incluye
+
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Vitrina pública: proyectos + feed de publicaciones |
+| `/publicaciones/[slug]` | Detalle interno o redirect a URL externa |
+| `/admin` | Dashboard (solo admin) |
+| `/admin/publications` | CRUD de publicaciones |
+| `/admin/login` | Login con Google |
+
+---
+
+## Setup local
+
+### Requisitos
+
+- Node.js 20+
+- Cuenta [Neon](https://neon.tech) (Postgres)
+- Google OAuth credentials (mismo flujo que RotaTuDisfraz)
+
+### Pasos
 
 ```bash
+git clone https://github.com/jbalcucho/balcu-hub.git
+cd balcu-hub
+npm install
+cp .env.example .env.local   # completa variables
+npm run db:deploy            # aplica migraciones
+npm run db:seed              # datos iniciales (cuentos Chacachon, etc.)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy en Vercel
 
-## Learn More
+1. Push del repo a GitHub (`github.com/jbalcucho/balcu-hub`).
+2. Importar en [Vercel](https://vercel.com/new) → seleccionar el repo.
+3. Agregar variables de entorno (las de `.env.example`).
+4. En **Google Cloud Console**, agregar redirect URI de producción:
+   - `https://TU-PROYECTO.vercel.app/api/auth/callback/google`
+5. Deploy. Luego ejecutar migraciones contra Neon prod:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run db:deploy
+npm run db:seed
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(con `DATABASE_URL` apuntando a la base de prod)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Variables de entorno
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Variable | Uso |
+|----------|-----|
+| `DATABASE_URL` | Neon pooler (runtime) |
+| `DIRECT_URL` | Neon directo (migraciones) |
+| `NEXTAUTH_URL` | URL del sitio (`http://localhost:3000` o Vercel) |
+| `NEXTAUTH_SECRET` | Secreto aleatorio largo |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | OAuth |
+| `ADMIN_EMAIL` | **Solo esta cuenta** puede entrar al admin |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Proyectos (registry)
+
+Los proyectos se definen en `data/registry.json` (sincronizado con `../registry.md` del ecosistema). Las publicaciones viven en Postgres y pueden:
+
+- Enlazar a contenido externo (cuentos HTML en Chacachon, RotaTuDisfraz live)
+- Tener contenido interno en el hub (`/publicaciones/[slug]`)
+
+---
+
+## Scripts
+
+| Script | Descripción |
+|--------|-------------|
+| `npm run dev` | Desarrollo local |
+| `npm run build` | Build producción |
+| `npm run db:migrate` | Nueva migración (dev) |
+| `npm run db:deploy` | Aplicar migraciones |
+| `npm run db:seed` | Datos iniciales |
+| `npm run db:studio` | Prisma Studio |
+
+---
+
+## Repo Git
+
+Repositorio independiente dentro del workspace `balcu-apps/`. Remote sugerido:
+
+`github.com/jbalcucho/balcu-hub`
