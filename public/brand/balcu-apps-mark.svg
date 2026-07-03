@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Balcu Apps">
+  <defs>
+    <linearGradient id="balcu-grad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EE7B7"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="#141824" stroke="url(#balcu-grad)" stroke-width="2"/>
+  <circle cx="22" cy="28" r="5" fill="#6EE7B7"/>
+  <circle cx="42" cy="28" r="5" fill="#A78BFA"/>
+  <circle cx="32" cy="42" r="5" fill="#F3F1EC"/>
+</svg>

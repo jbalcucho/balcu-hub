@@ -7,7 +7,13 @@
       "status": "Fase 1",
       "emoji": "🛡️",
       "url": null,
-      "repo": "https://github.com/jbalcucho/smart_control_security"
+      "repo": "https://github.com/jbalcucho/smart_control_security",
+      "brand": {
+        "logo": "/brand/smart-control-mark.svg",
+        "primary": "#3B82F6",
+        "secondary": "#F59E0B",
+        "surface": "#0F172A"
+      }
     },
     {
       "slug": "rotatudisfraz",
@@ -16,7 +22,13 @@
       "status": "Producción",
       "emoji": "🎃",
       "url": "https://rotatudisfraz.vercel.app",
-      "repo": "https://github.com/jbalcucho/rotatudisfraz"
+      "repo": "https://github.com/jbalcucho/rotatudisfraz",
+      "brand": {
+        "logo": "/brand/rotatudisfraz-mark.svg",
+        "primary": "#F97316",
+        "secondary": "#FFEDD5",
+        "surface": "#FFFBF7"
+      }
     },
     {
       "slug": "chacachon_stories",
@@ -25,7 +37,13 @@
       "status": "MVP",
       "emoji": "🌙",
       "url": "https://chacachon-stories.vercel.app",
-      "repo": "https://github.com/jbalcucho/chacachon_stories"
+      "repo": "https://github.com/jbalcucho/chacachon_stories",
+      "brand": {
+        "logo": "/brand/chacachon-mark.svg",
+        "primary": "#E8C47A",
+        "secondary": "#E86A5A",
+        "surface": "#12141C"
+      }
     }
   ]
 }

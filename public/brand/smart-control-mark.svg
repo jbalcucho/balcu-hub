@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Smart Control Security">
+  <path d="M32 6L52 16V32C52 44.15 43.05 54.8 32 58C20.95 54.8 12 44.15 12 32V16L32 6Z" fill="#0F172A" stroke="#3B82F6" stroke-width="2"/>
+  <path d="M32 18C26.48 18 22 22.48 22 28C22 34.5 32 44 32 44C32 44 42 34.5 42 28C42 22.48 37.52 18 32 18Z" fill="#3B82F6"/>
+  <circle cx="32" cy="28" r="4" fill="#F3F1EC"/>
+  <path d="M32 32V36" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+</svg>

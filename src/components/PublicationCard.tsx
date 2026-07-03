@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Publication } from "@prisma/client";
 import { getProjectBySlug } from "@/lib/registry";
@@ -11,12 +12,29 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
   const project = getProjectBySlug(publication.projectSlug);
   const href = publicationHref(publication.slug, publication.externalUrl);
   const isExternal = Boolean(publication.externalUrl);
+  const brandPrimary = project?.brand.primary ?? "var(--balcu-mint)";
 
   return (
     <article className="card">
       <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="badge badge-accent">
-          {project?.emoji} {project?.name ?? publication.projectSlug}
+        <span
+          className="badge inline-flex items-center gap-2"
+          style={{
+            borderColor: `${brandPrimary}33`,
+            color: brandPrimary,
+            backgroundColor: `${brandPrimary}14`,
+          }}
+        >
+          {project?.brand.logo ? (
+            <Image
+              src={project.brand.logo}
+              alt=""
+              width={16}
+              height={16}
+              aria-hidden
+            />
+          ) : null}
+          {project?.name ?? publication.projectSlug}
         </span>
         {publication.publishedAt ? (
           <time
@@ -43,7 +61,8 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
         href={href}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
-        className="link-accent mt-4 inline-block text-sm font-semibold"
+        className="mt-4 inline-block text-sm font-semibold transition hover:opacity-80"
+        style={{ color: brandPrimary }}
       >
         {isExternal ? "Abrir publicación →" : "Leer más →"}
       </Link>

@@ -6,15 +6,24 @@
 }
 
 :root {
-  --bg: #0b0d12;
-  --surface: #141824;
+  /* Balcu Apps — ver brand/README.md y brand/tokens.css */
+  --balcu-ink: #0b0d12;
+  --balcu-slate: #141824;
+  --balcu-mist: #9aa3b2;
+  --balcu-paper: #f3f1ec;
+  --balcu-mint: #6ee7b7;
+  --balcu-mint-soft: rgba(110, 231, 183, 0.14);
+  --balcu-violet: #a78bfa;
+  --balcu-violet-soft: rgba(167, 139, 250, 0.12);
+
+  /* Aliases hub UI */
+  --bg: var(--balcu-ink);
+  --surface: var(--balcu-slate);
   --surface-hover: #1b2130;
   --border: rgba(255, 255, 255, 0.08);
-  --text: #f3f1ec;
-  --muted: #9aa3b2;
-  --accent: #6ee7b7;
-  --accent-soft: rgba(110, 231, 183, 0.14);
-  --violet: #a78bfa;
+  --text: var(--balcu-paper);
+  --muted: var(--balcu-mist);
+  --accent: var(--balcu-mint);
 }
 
 @layer base {
@@ -48,7 +57,7 @@
   }
 
   .badge-accent {
-    @apply border-emerald-400/20 bg-[var(--accent-soft)] text-emerald-200;
+    @apply border-emerald-400/20 bg-[var(--balcu-mint-soft)] text-emerald-200;
   }
 
   .btn-primary {
@@ -75,5 +84,17 @@
 
   .hero-title {
     font-family: var(--font-display);
+  }
+
+  .project-logo-wrap {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl;
+  }
+
+  .project-link {
+    transition: opacity 0.15s ease;
+  }
+
+  .project-link:hover {
+    opacity: 0.85;
   }
 }

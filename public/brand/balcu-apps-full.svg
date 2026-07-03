@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="Balcu Apps">
+  <defs>
+    <linearGradient id="balcu-full-grad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EE7B7"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="#141824" stroke="url(#balcu-full-grad)" stroke-width="2"/>
+  <circle cx="22" cy="28" r="5" fill="#6EE7B7"/>
+  <circle cx="42" cy="28" r="5" fill="#A78BFA"/>
+  <circle cx="32" cy="42" r="5" fill="#F3F1EC"/>
+  <text x="76" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#F3F1EC">balcu</text>
+  <text x="152" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="400" fill="#9AA3B2">apps</text>
+  <text x="76" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" letter-spacing="0.18em" fill="#6EE7B7">PRODUCT STUDIO</text>
+</svg>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PublicationStatus } from "@prisma/client";
 import ProjectCard from "@/components/ProjectCard";
 import PublicationCard from "@/components/PublicationCard";
@@ -39,11 +40,20 @@ export default async function HomePage() {
     <main className="container-app py-10 sm:py-14">
       <section className="mb-12 max-w-3xl">
         <p className="mb-3 text-sm uppercase tracking-[0.24em] text-emerald-300/80">
-          Ecosistema Balcu
+          Ecosistema Balcu Apps
         </p>
-        <h1 className="hero-title text-4xl font-semibold tracking-tight sm:text-5xl">
-          Tus proyectos y publicaciones en un solo lugar
-        </h1>
+        <div className="mb-4 flex items-center gap-3">
+          <Image
+            src="/brand/balcu-apps-mark.svg"
+            alt=""
+            width={48}
+            height={48}
+            aria-hidden
+          />
+          <h1 className="hero-title text-4xl font-semibold tracking-tight sm:text-5xl">
+            Tus proyectos y publicaciones en un solo lugar
+          </h1>
+        </div>
         <p className="mt-4 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
           Vitrina pública de Balcu Apps. Desde aquí ves el estado de cada
           producto y las publicaciones recientes — cuentos, demos, lanzamientos
