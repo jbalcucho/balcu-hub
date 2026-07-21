@@ -33,7 +33,7 @@
     {
       "slug": "bienplaneado",
       "name": "BienPlaneado",
-      "description": "Sistema ligero del hogar familiar: tareas, medicinas, citas, listas y avisos.",
+      "description": "Hogar familiar: tareas, medicinas, hábitos, listas/compra, Calendar e Inbox escolar.",
       "status": "Dogfood",
       "emoji": "🏠",
       "url": "https://bienplaneado.vercel.app",
